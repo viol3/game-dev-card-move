@@ -1,8 +1,8 @@
-module module_1::simple_nft 
+module ays::game_dev_card
 {
     use std::string::String;
     
-    public struct SimpleNFT has key, store 
+    public struct GameDevCardItem has key, store 
     {
         id: UID,
         name: String,
@@ -10,9 +10,9 @@ module module_1::simple_nft
         image_url: String,
     }
 
-    public struct SIMPLE_NFT has drop {}
+    public struct GAME_DEV_CARD_ITEM has drop {}
 
-    fun init(otw: SIMPLE_NFT, ctx: &mut TxContext) 
+    fun init(otw: GAME_DEV_CARD_ITEM, ctx: &mut TxContext) 
     {
         let keys = vector[
             b"name".to_string(),
@@ -28,7 +28,7 @@ module module_1::simple_nft
 
         let publisher = sui::package::claim(otw, ctx);
 
-        let mut display = sui::display::new_with_fields<SimpleNFT>(
+        let mut display = sui::display::new_with_fields<GameDevCardItem>(
             &publisher,
             keys,
             values,
@@ -44,10 +44,10 @@ module module_1::simple_nft
     #[allow(lint(self_transfer))]
     public entry fun create_simple_nft(name: String, ctx: &mut TxContext) 
     {
-        let simple_nft = SimpleNFT {
+        let simple_nft = GameDevCardItem {
             id: object::new(ctx),
             name: name,
-            description: b"A simple NFT".to_string(),
+            description: b"A Game Dev Card Item".to_string(),
             image_url: b"https://i.imgur.com/5LOzwSR.png".to_string(),
         };
 
