@@ -75,11 +75,11 @@ module ays::game_dev_card
     {
         let game_name_len = std::string::length(&game_name);
         assert!(game_name_len >= 3, 1); 
-        assert!(game_name_len <= 50, 2);
+        assert!(game_name_len <= 250, 2);
 
         let game_link_len = std::string::length(&game_link);
         assert!(game_link_len >= 3, 3); 
-        assert!(game_link_len <= 50, 4);
+        assert!(game_link_len <= 1000, 4);
 
         let description_len = std::string::length(&description);
         assert!(description_len >= 3, 5); 
@@ -148,7 +148,7 @@ module ays::game_dev_card
     {
         let game_name_len = std::string::length(&game_name);
         assert!(game_name_len >= 3, 1); 
-        assert!(game_name_len <= 50, 2);
+        assert!(game_name_len <= 250, 2);
 
         let game_link_len = std::string::length(&game_link);
         assert!(game_link_len >= 3, 3); 
